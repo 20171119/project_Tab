@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">project_Tab</string>
+    <string name="btitle">Load Contacts</string>
 </resources>
