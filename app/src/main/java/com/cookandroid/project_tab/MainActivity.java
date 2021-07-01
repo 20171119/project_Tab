@@ -67,8 +67,13 @@ public class MainActivity extends AppCompatActivity {
         // 세 번째 Tab. (탭 표시 텍스트:"TAB 3"), (페이지 뷰:"content3")
         TabHost.TabSpec ts3 = tabHost1.newTabSpec("Tab Spec 3") ;
         ts3.setContent(R.id.content3) ;
-        ts3.setIndicator("TAB 3") ;
+        ts3.setIndicator("Game") ;
         tabHost1.addTab(ts3) ;
+
+        TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4") ;
+        ts4.setContent(R.id.content4) ;
+        ts4.setIndicator("Gallery2") ;
+        tabHost1.addTab(ts4) ;
 
 
         // Call 변수 미리 설정
