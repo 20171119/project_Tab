@@ -31,6 +31,9 @@ public class Main {
         ranMap.put(2, (ran % 100) / 10); //십의 자리
         ranMap.put(3, ran % 10); //일의자리
 
+        System.out.println("ans: " + ans);
+        System.out.println("ran: " + ran);
+
         // strike 확인
         for (int i = 0; i < 4; i++) {
             if (ansMap.get(i) == ranMap.get(i)) {

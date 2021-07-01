@@ -61,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
 
     // 새게임
     public void buttonClick1(View v){
-        Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
+        Intent intent = new Intent(getApplicationContext(), GameActivity.class);
         startActivityForResult(intent,1002);
     }
 
     //도움말버튼 이벤트
     public void buttonClick2(View v){
-        Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
+        Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
         startActivityForResult(intent,1002);
     }
 
