@@ -64,15 +64,15 @@ public class MainActivity extends AppCompatActivity {
         LoadContactsAyscn lca = new LoadContactsAyscn();
         lca.execute();
 
-//        imageview = (ImageView)findViewById(R.id.imageView);
-//        imageview.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(Intent.ACTION_PICK);
-//                intent. setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-//                startActivityForResult(intent, GET_GALLERY_IMAGE);
-//            }
-//        });
+        imageview = (ImageView)findViewById(R.id.imageView);
+        imageview.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent. setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                startActivityForResult(intent, GET_GALLERY_IMAGE);
+            }
+        });
     }
 
     // 새게임
@@ -110,18 +110,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//
-//            Uri selectedImageUri = data.getData();
-//            imageview.setImageURI(selectedImageUri);
-//
-//        }
-//
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            Uri selectedImageUri = data.getData();
+            imageview.setImageURI(selectedImageUri);
+
+        }
+
+    }
 
     class LoadContactsAyscn extends AsyncTask<Void, Void, ArrayList<String>> {
 
