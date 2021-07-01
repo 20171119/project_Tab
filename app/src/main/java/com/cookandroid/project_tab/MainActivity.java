@@ -58,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         ts3.setIndicator("TAB 3") ;
         tabHost1.addTab(ts3) ;
 
+        TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 3") ;
+        ts3.setContent(R.id.content4) ;
+        ts3.setIndicator("TAB 4") ;
+        tabHost1.addTab(ts4) ;
+
         // Call 변수 미리 설정
         ll = (LinearLayout) findViewById(R.id.content1);
         list = (ListView) findViewById(R.id.listView1);
