@@ -1,29 +1,28 @@
 package com.cookandroid.project_tab;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
-import android.view.View.OnClickListener;
-import android.app.ProgressDialog;
-import android.database.Cursor;
-import android.os.AsyncTask;
-import android.provider.ContactsContract;
-import android.widget.ArrayAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.Collections;
+
 
 public class MainActivity extends AppCompatActivity {
 
     ListView list;
     LinearLayout ll;
-//    Button loadBtn;
-
     ProgressDialog pd;
 
     @Override
@@ -52,24 +51,47 @@ public class MainActivity extends AppCompatActivity {
         ts3.setIndicator("TAB 3") ;
         tabHost1.addTab(ts3) ;
 
+        // Call 변수 미리 설정
         ll = (LinearLayout) findViewById(R.id.content1);
-
         list = (ListView) findViewById(R.id.listView1);
-
         LoadContactsAyscn lca = new LoadContactsAyscn();
         lca.execute();
 
-//        loadBtn = (Button) findViewById(R.id.button1);
-//        loadBtn.setOnClickListener(new OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                System.out.println("OnClick");
-//                LoadContactsAyscn lca = new LoadContactsAyscn();
-//                lca.execute();
-//            }
-//        });
+    }
+
+    // 새게임
+    public void buttonClick1(View v){
+        Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
+        startActivityForResult(intent,1002);
+    }
+
+    //도움말버튼 이벤트
+    public void buttonClick2(View v){
+        Intent intent = new Intent(getApplicationContext(),HelpActivity.class);
+        startActivityForResult(intent,1002);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     class LoadContactsAyscn extends AsyncTask<Void, Void, ArrayList<String>> {
@@ -116,8 +138,6 @@ public class MainActivity extends AppCompatActivity {
 
             pd.cancel();
 
-//            ll.removeView(loadBtn);
-
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                     getApplicationContext(), R.layout.text, contacts);
 
@@ -126,9 +146,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        pd.dismiss();
-//    }
+
 }
