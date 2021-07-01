@@ -32,7 +32,7 @@ import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cookandroid.project_tab.customadapter.CustomGalleryAdapter;
+//import com.cookandroid.project_tab.customadapter.CustomGalleryAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView resultView;
     private TextView imgPath;
     private Gallery customGallery;
-    private CustomGalleryAdapter customGalAdapter;
+//    private CustomGalleryAdapter customGalAdapter;
 
     private String[] imgs;
 
@@ -89,10 +89,10 @@ public class MainActivity extends AppCompatActivity {
         ts3.setIndicator("TAB 3") ;
         tabHost1.addTab(ts3) ;
 
-        TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4") ;
-        ts3.setContent(R.id.content4) ;
-        ts3.setIndicator("TAB 4") ;
-        tabHost1.addTab(ts4) ;
+//        TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4") ;
+//        ts3.setContent(R.id.content4) ;
+//        ts3.setIndicator("TAB 4") ;
+//        tabHost1.addTab(ts4) ;
 
         // Call 변수 미리 설정
         ll = (LinearLayout) findViewById(R.id.content1);
@@ -126,9 +126,9 @@ public class MainActivity extends AppCompatActivity {
 
         basePath = mediaStorageDir.getPath();
 
-        imgPath = (TextView)findViewById(R.id.imgpath);
-        resultView = (ImageView)findViewById(R.id.resultview);
-        takePicBtn = (Button)findViewById(R.id.takepicbtn);
+//        imgPath = (TextView)findViewById(R.id.imgpath);
+//        resultView = (ImageView)findViewById(R.id.resultview);
+//        takePicBtn = (Button)findViewById(R.id.takepicbtn);
         // Button click시, Camera Intent를 불러 옴
         takePicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,9 +156,9 @@ public class MainActivity extends AppCompatActivity {
             imgPath.setText(imgs[i]);
         }
 
-        customGallery = (Gallery)findViewById(R.id.customgallery); // activity_main.xml에서 선언한 Gallery를 연결
-        customGalAdapter = new CustomGalleryAdapter(getApplicationContext(), basePath); // 위 Gallery에 대한 Adapter를 선언
-        customGallery.setAdapter(customGalAdapter); // Gallery에 위 Adapter를 연결
+//        customGallery = (Gallery)findViewById(R.id.customgallery); // activity_main.xml에서 선언한 Gallery를 연결
+//        customGalAdapter = new CustomGalleryAdapter(getApplicationContext(), basePath); // 위 Gallery에 대한 Adapter를 선언
+//        customGallery.setAdapter(customGalAdapter); // Gallery에 위 Adapter를 연결
         // Gallery의 Item을 Click할 경우 ImageView에 보여주도록 함
         customGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

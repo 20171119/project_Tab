@@ -3,8 +3,6 @@
     package="com.cookandroid.project_tab">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> <!-- 외부 저장소 read permission -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 외부 저장소 write permission -->
 
     <application
         android:allowBackup="true"
