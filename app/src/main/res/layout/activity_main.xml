@@ -42,14 +42,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-<!--                    <Button-->
-<!--                        android:id="@+id/button1"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:text="@string/btitle"-->
-<!--                        android:textSize="25sp" />-->
-
                     <ListView
                         android:id="@+id/listView1"
                         android:layout_width="match_parent"
@@ -58,7 +50,6 @@
                         android:divider="#00ffff"
                         android:dividerHeight="2sp" >
                     </ListView>
-
                 </LinearLayout>
 
                 <!-- 두 번째 페이지. content2 -->
@@ -68,15 +59,143 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView"
+                    <ScrollView
+                        android:id="@+id/scroll"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitCenter"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        app:srcCompat="@drawable/ic_image"
-                        tools:ignore="VectorDrawableCompat" />
+                        android:layout_height="match_parent">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+
+                            <Button
+                                android:id="@+id/btnImage"
+                                android:text="이미지 가져오기"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <ImageView
+                                android:id="@+id/img1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                 />
+
+                            <ImageView
+                                android:id="@+id/img2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img13"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img17"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img19"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+
+                            <ImageView
+                                android:id="@+id/img20"
+                                android:layout_width="wrap_content"
+                                android:layout_height="400dp"
+                                />
+                        </LinearLayout>
+                    </ScrollView>
                 </LinearLayout>
 
 
@@ -151,6 +270,13 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_below="@id/customgallery" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/content5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

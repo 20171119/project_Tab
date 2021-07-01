@@ -1,6 +1,7 @@
 package com.cookandroid.project_tab;
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
     private CustomGalleryAdapter customGalAdapter;
 
     private String[] imgs;
+//    ArrayList<ImageView> imgList = new ArrayList<>();
+    ImageView image1, image2, image3, image4, image5, image6, image7, image8, image9, image10,
+            image11, image12, image13, image14, image15, image16, image17, image18, image19, image20;
+    final int PICTURE_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
         ts4.setIndicator("Gallery2") ;
         tabHost1.addTab(ts4) ;
 
+        TabHost.TabSpec ts5 = tabHost1.newTabSpec("Tab Spec 5") ;
+        ts5.setContent(R.id.content5) ;
+        ts5.setIndicator("Gallery3") ;
+        tabHost1.addTab(ts5) ;
+
 
         // Call 변수 미리 설정
         ll = (LinearLayout) findViewById(R.id.content1);
@@ -100,87 +110,50 @@ public class MainActivity extends AppCompatActivity {
         lca.execute();
 
         //Tap2 - Gallery
-        imageview = (ImageView)findViewById(R.id.imageView);
-        imageview.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                startActivityForResult(intent, GET_GALLERY_IMAGE);
-            }
-        });
-
-        // App.을 실행하자 마자 지정한 경로의 생성 및 접근에 용이하도록 아래와 같이 생성
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "project_Tab");
-        // This location works best if you want the created images to be shared
-        // between applications and persist after your app has been uninstalled.
-
-        // Create the storage directory if it does not exist
-        if (! mediaStorageDir.exists()){
-            if (! mediaStorageDir.mkdirs()){
-                Log.d("project_Tab", "failed to create directory");
-//                return null;
-            }
-        }
-
-        basePath = mediaStorageDir.getPath();
-
-        imgPath = (TextView)findViewById(R.id.imgpath);
-        resultView = (ImageView)findViewById(R.id.resultview);
-        takePicBtn = (Button)findViewById(R.id.takepicbtn);
-        // Button click시, Camera Intent를 불러 옴
-        takePicBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // create Intent to take a picture and return control to the calling application
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-//                fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
-//                intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
+//        imageview = (ImageView)findViewById(R.id.imageView);
+//        imageview.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
 //
-//                // start the image capture Intent
-//                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+//                Intent intent = new Intent(Intent.ACTION_PICK);
+//                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+//                startActivityForResult(intent, GET_GALLERY_IMAGE);
+//            }
+//        });
 
-                File imagesFolder = new File(Environment.getExternalStorageDirectory(), "MyImages");
-                imagesFolder.mkdirs(); // <----
-                File image = new File(imagesFolder, "image_001.jpg");
-                Uri uriSavedImage = Uri.fromFile(image);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-            }
-        });
+        //UI
+        image1 = (ImageView)findViewById(R.id.img1);
+        image2 = (ImageView)findViewById(R.id.img2);
+        image3 = (ImageView)findViewById(R.id.img3);
+        image4 = (ImageView)findViewById(R.id.img4);
+        image5 = (ImageView)findViewById(R.id.img5);
+        image6 = (ImageView)findViewById(R.id.img6);
+        image7 = (ImageView)findViewById(R.id.img7);
+        image8 = (ImageView)findViewById(R.id.img8);
+        image9 = (ImageView)findViewById(R.id.img9);
+        image10 = (ImageView)findViewById(R.id.img10);
+        image11 = (ImageView)findViewById(R.id.img11);
+        image12 = (ImageView)findViewById(R.id.img12);
+        image13 = (ImageView)findViewById(R.id.img13);
+        image14 = (ImageView)findViewById(R.id.img14);
+        image15 = (ImageView)findViewById(R.id.img15);
+        image16 = (ImageView)findViewById(R.id.img16);
+        image17 = (ImageView)findViewById(R.id.img17);
+        image18 = (ImageView)findViewById(R.id.img18);
+        image19 = (ImageView)findViewById(R.id.img19);
+        image20 = (ImageView)findViewById(R.id.img20);
 
-        File file = new File(basePath);
-        imgs = file.list();
-        for(int i=0; i<imgs.length; i++){
-            imgPath.setText(imgs[i]);
-        }
-
-        customGallery = (Gallery)findViewById(R.id.customgallery); // activity_main.xml에서 선언한 Gallery를 연결
-        customGalAdapter = new CustomGalleryAdapter(getApplicationContext(), basePath); // 위 Gallery에 대한 Adapter를 선언
-        customGallery.setAdapter(customGalAdapter); // Gallery에 위 Adapter를 연결
-        // Gallery의 Item을 Click할 경우 ImageView에 보여주도록 함
-        customGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        Button btnImage = (Button)findViewById(R.id.btnImage);
+        btnImage.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Bitmap bm = BitmapFactory.decodeFile(basePath+ File.separator +imgs[position]);
-                Bitmap bm2 = ThumbnailUtils.extractThumbnail(bm, bm.getWidth() / inSampleSize, bm.getHeight() / inSampleSize);
-                resultView.setImageBitmap(bm2);
-                imgPath.setText(basePath+File.separator+imgs[position]);
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+                //사진을 여러개 선택할수 있도록 한다
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),  PICTURE_REQUEST_CODE);
             }
         });
-        // Gallery의 Item을 LongClick할 경우 해당 File을 삭제하도록 함.
-        // 이 부분에서 동작은 하나, 삭제 후 결과가 View에 반영이 안되어 추가 보완 필요
-        customGallery.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                File temp = new File(basePath+File.separator+imgs[position]);
-                temp.delete();
-                return false;
-            }
-        });
-        System.out.println("after Gallery");
+
     }
 
     // 새게임
@@ -221,14 +194,118 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+//
+//            Uri selectedImageUri = data.getData();
+//            imageview.setImageURI(selectedImageUri);
+//
+//        }
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == PICTURE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
 
-            Uri selectedImageUri = data.getData();
-            imageview.setImageURI(selectedImageUri);
+                //기존 이미지 지우기
+                image1.setImageResource(0);
+                image2.setImageResource(0);
+                image3.setImageResource(0);
+                image4.setImageResource(0);
+                image5.setImageResource(0);
+                image6.setImageResource(0);
+                image7.setImageResource(0);
+                image8.setImageResource(0);
+                image9.setImageResource(0);
+                image10.setImageResource(0);
+                image11.setImageResource(0);
+                image12.setImageResource(0);
+                image13.setImageResource(0);
+                image14.setImageResource(0);
+                image15.setImageResource(0);
+                image16.setImageResource(0);
+                image17.setImageResource(0);
+                image18.setImageResource(0);
+                image19.setImageResource(0);
+                image20.setImageResource(0);
 
+                //ClipData 또는 Uri를 가져온다
+                Uri uri = data.getData();
+                ClipData clipData = data.getClipData();
+
+                //이미지 URI 를 이용하여 이미지뷰에 순서대로 세팅한다.
+                if (clipData != null) {
+
+                    for (int i = 0; i < 20; i++) {
+                        if (i < clipData.getItemCount()) {
+                            Uri urione = clipData.getItemAt(i).getUri();
+                            switch (i) {
+                                case 0:
+                                    image1.setImageURI(urione);
+                                    break;
+                                case 1:
+                                    image2.setImageURI(urione);
+                                    break;
+                                case 2:
+                                    image3.setImageURI(urione);
+                                    break;
+                                case 4:
+                                    image4.setImageURI(urione);
+                                    break;
+                                case 5:
+                                    image5.setImageURI(urione);
+                                    break;
+                                case 6:
+                                    image6.setImageURI(urione);
+                                    break;
+                                case 7:
+                                    image7.setImageURI(urione);
+                                    break;
+                                case 8:
+                                    image8.setImageURI(urione);
+                                    break;
+                                case 9:
+                                    image9.setImageURI(urione);
+                                    break;
+                                case 10:
+                                    image10.setImageURI(urione);
+                                    break;
+                                case 11:
+                                    image11.setImageURI(urione);
+                                    break;
+                                case 12:
+                                    image12.setImageURI(urione);
+                                    break;
+                                case 13:
+                                    image13.setImageURI(urione);
+                                    break;
+                                case 14:
+                                    image14.setImageURI(urione);
+                                    break;
+                                case 15:
+                                    image15.setImageURI(urione);
+                                    break;
+                                case 16:
+                                    image16.setImageURI(urione);
+                                    break;
+                                case 17:
+                                    image17.setImageURI(urione);
+                                    break;
+                                case 18:
+                                    image18.setImageURI(urione);
+                                    break;
+                                case 19:
+                                    image19.setImageURI(urione);
+                                    break;
+                                case 20:
+                                    image20.setImageURI(urione);
+                                    break;
+                            }
+                        }
+                    }
+                } else if (uri != null) {
+                    image1.setImageURI(uri);
+                }
+            }
         }
-
     }
 
     class LoadContactsAyscn extends AsyncTask<Void, Void, ArrayList<String>> {
