@@ -4,34 +4,26 @@ import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Gallery;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import android.net.Uri;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,34 +32,148 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout ll;
     ProgressDialog pd;
 
-    private final int GET_GALLERY_IMAGE = 200;
-    private ImageView imageview;
 
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
-    public int inSampleSize = 1;
-
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    private Uri fileUri;
-    private static String basePath;
-
-    public float imageViewRotation = 90;
-    public String TAG = "Camera Example :: ";
-
-    private Button takePicBtn;
-    private ImageView resultView;
-    private TextView imgPath;
-    private Gallery customGallery;
-    private CustomGalleryAdapter customGalAdapter;
-
-    private String[] imgs;
-//    ArrayList<ImageView> imgList = new ArrayList<>();
     ImageView image1, image2, image3, image4, image5, image6, image7, image8, image9, image10,
             image11, image12, image13, image14, image15, image16, image17, image18, image19, image20;
     final int PICTURE_REQUEST_CODE = 100;
 
+    public void imgVisible() {
+        for (int i =0 ; i < 20; i++) {
+            switch (i) {
+                case 0:
+                    image1.setVisibility(View.VISIBLE);
+                    break;
+                case 1:
+                    image2.setVisibility(View.VISIBLE);
+                    break;
+                case 2:
+                    image3.setVisibility(View.VISIBLE);
+                    break;
+                case 3:
+                    image4.setVisibility(View.VISIBLE);
+                    break;
+                case 4:
+                    image5.setVisibility(View.VISIBLE);
+                    break;
+                case 5:
+                    image6.setVisibility(View.VISIBLE);
+                    break;
+                case 6:
+                    image7.setVisibility(View.VISIBLE);
+                    break;
+                case 7:
+                    image8.setVisibility(View.VISIBLE);
+                    break;
+                case 8:
+                    image9.setVisibility(View.VISIBLE);
+                    break;
+                case 9:
+                    image10.setVisibility(View.VISIBLE);
+                    break;
+                case 10:
+                    image11.setVisibility(View.VISIBLE);
+                    break;
+                case 11:
+                    image12.setVisibility(View.VISIBLE);
+                    break;
+                case 12:
+                    image13.setVisibility(View.VISIBLE);
+                    break;
+                case 13:
+                    image14.setVisibility(View.VISIBLE);
+                    break;
+                case 14:
+                    image15.setVisibility(View.VISIBLE);
+                    break;
+                case 15:
+                    image16.setVisibility(View.VISIBLE);
+                    break;
+                case 16:
+                    image17.setVisibility(View.VISIBLE);
+                    break;
+                case 17:
+                    image18.setVisibility(View.VISIBLE);
+                    break;
+                case 18:
+                    image19.setVisibility(View.VISIBLE);
+                    break;
+                case 19:
+                    image20.setVisibility(View.VISIBLE);
+                    break;
+            }
+        }
+    }
+
+    public void imgInvisible(int num) {
+        for (; num < 20; num++) {
+            switch (num) {
+                case 0:
+                    image1.setVisibility(View.GONE);
+                    break;
+                case 1:
+                    image2.setVisibility(View.GONE);
+                    break;
+                case 2:
+                    image3.setVisibility(View.GONE);
+                    break;
+                case 3:
+                    image4.setVisibility(View.GONE);
+                    break;
+                case 4:
+                    image5.setVisibility(View.GONE);
+                    break;
+                case 5:
+                    image6.setVisibility(View.GONE);
+                    break;
+                case 6:
+                    image7.setVisibility(View.GONE);
+                    break;
+                case 7:
+                    image8.setVisibility(View.GONE);
+                    break;
+                case 8:
+                    image9.setVisibility(View.GONE);
+                    break;
+                case 9:
+                    image10.setVisibility(View.GONE);
+                    break;
+                case 10:
+                    image11.setVisibility(View.GONE);
+                    break;
+                case 11:
+                    image12.setVisibility(View.GONE);
+                    break;
+                case 12:
+                    image13.setVisibility(View.GONE);
+                    break;
+                case 13:
+                    image14.setVisibility(View.GONE);
+                    break;
+                case 14:
+                    image15.setVisibility(View.GONE);
+                    break;
+                case 15:
+                    image16.setVisibility(View.GONE);
+                    break;
+                case 16:
+                    image17.setVisibility(View.GONE);
+                    break;
+                case 17:
+                    image18.setVisibility(View.GONE);
+                    break;
+                case 18:
+                    image19.setVisibility(View.GONE);
+                    break;
+                case 19:
+                    image20.setVisibility(View.GONE);
+                    break;
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -83,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         // 두 번째 Tab. (탭 표시 텍스트:"TAB 2"), (페이지 뷰:"content2")
         TabHost.TabSpec ts2 = tabHost1.newTabSpec("Tab Spec 2") ;
         ts2.setContent(R.id.content2) ;
-        ts2.setIndicator("Gallery") ;
+        ts2.setIndicator("Photo") ;
         tabHost1.addTab(ts2) ;
 
         // 세 번째 Tab. (탭 표시 텍스트:"TAB 3"), (페이지 뷰:"content3")
@@ -94,31 +200,14 @@ public class MainActivity extends AppCompatActivity {
 
         TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4") ;
         ts4.setContent(R.id.content4) ;
-        ts4.setIndicator("Gallery2") ;
+        ts4.setIndicator("New") ;
         tabHost1.addTab(ts4) ;
-
-        TabHost.TabSpec ts5 = tabHost1.newTabSpec("Tab Spec 5") ;
-        ts5.setContent(R.id.content5) ;
-        ts5.setIndicator("Gallery3") ;
-        tabHost1.addTab(ts5) ;
-
 
         // Call 변수 미리 설정
         ll = (LinearLayout) findViewById(R.id.content1);
         list = (ListView) findViewById(R.id.listView1);
         LoadContactsAyscn lca = new LoadContactsAyscn();
         lca.execute();
-
-        //Tap2 - Gallery
-//        imageview = (ImageView)findViewById(R.id.imageView);
-//        imageview.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(Intent.ACTION_PICK);
-//                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-//                startActivityForResult(intent, GET_GALLERY_IMAGE);
-//            }
-//        });
 
         //UI
         image1 = (ImageView)findViewById(R.id.img1);
@@ -143,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
         image20 = (ImageView)findViewById(R.id.img20);
 
         Button btnImage = (Button)findViewById(R.id.btnImage);
+        imgInvisible(0);
         btnImage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -151,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"),  PICTURE_REQUEST_CODE);
+                imgVisible();
             }
         });
 
@@ -194,13 +285,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//
-//            Uri selectedImageUri = data.getData();
-//            imageview.setImageURI(selectedImageUri);
-//
-//        }
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICTURE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
@@ -231,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
                 Uri uri = data.getData();
                 ClipData clipData = data.getClipData();
 
+                int num = 0;
                 //이미지 URI 를 이용하여 이미지뷰에 순서대로 세팅한다.
                 if (clipData != null) {
 
@@ -247,63 +332,66 @@ public class MainActivity extends AppCompatActivity {
                                 case 2:
                                     image3.setImageURI(urione);
                                     break;
-                                case 4:
+                                case 3:
                                     image4.setImageURI(urione);
                                     break;
-                                case 5:
+                                case 4:
                                     image5.setImageURI(urione);
                                     break;
-                                case 6:
+                                case 5:
                                     image6.setImageURI(urione);
                                     break;
-                                case 7:
+                                case 6:
                                     image7.setImageURI(urione);
                                     break;
-                                case 8:
+                                case 7:
                                     image8.setImageURI(urione);
                                     break;
-                                case 9:
+                                case 8:
                                     image9.setImageURI(urione);
                                     break;
-                                case 10:
+                                case 9:
                                     image10.setImageURI(urione);
                                     break;
-                                case 11:
+                                case 10:
                                     image11.setImageURI(urione);
                                     break;
-                                case 12:
+                                case 11:
                                     image12.setImageURI(urione);
                                     break;
-                                case 13:
+                                case 12:
                                     image13.setImageURI(urione);
                                     break;
-                                case 14:
+                                case 13:
                                     image14.setImageURI(urione);
                                     break;
-                                case 15:
+                                case 14:
                                     image15.setImageURI(urione);
                                     break;
-                                case 16:
+                                case 15:
                                     image16.setImageURI(urione);
                                     break;
-                                case 17:
+                                case 16:
                                     image17.setImageURI(urione);
                                     break;
-                                case 18:
+                                case 17:
                                     image18.setImageURI(urione);
                                     break;
-                                case 19:
+                                case 18:
                                     image19.setImageURI(urione);
                                     break;
-                                case 20:
+                                case 19:
                                     image20.setImageURI(urione);
                                     break;
                             }
+                            num++;
                         }
                     }
                 } else if (uri != null) {
                     image1.setImageURI(uri);
                 }
+                System.out.println("uri_num: " + num);
+                imgInvisible(num);
             }
         }
     }
@@ -356,9 +444,7 @@ public class MainActivity extends AppCompatActivity {
                     getApplicationContext(), R.layout.text, contacts);
 
             list.setAdapter(adapter);
-
         }
-
     }
 
 }
