@@ -1,4 +1,4 @@
-package com.cookandroid.project_tab.customadapter;
+package com.cookandroid.project_tab;
 
 import android.content.Context;
 import android.content.res.TypedArray;
