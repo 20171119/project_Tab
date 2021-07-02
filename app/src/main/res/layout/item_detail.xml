@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="100dp"
+        android:background="@drawable/edge">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="3dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:src="@drawable/call1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_weight="0.8">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:layout_weight="1"
+                android:paddingTop="30dp"
+                android:text="Large Text"
+                android:textColor="#474F60"
+                android:textSize="16pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:id="@+id/txtContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="Small Text"
+                android:textColor="#4E5E73"
+                android:textSize="12pt" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:layout_weight="1"
+                android:text="확인"
+                app:backgroundTint="#545557" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
