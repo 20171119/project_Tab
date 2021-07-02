@@ -1,6 +1,7 @@
 package com.cookandroid.project_tab;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
@@ -10,9 +11,6 @@ import android.widget.TextView;
 
 import com.cookandroid.project_tab.data.Call;
 
-/**
- * Created by Administrator on 2016-04-25.
- */
 public class CallActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +22,7 @@ public class CallActivity extends AppCompatActivity {
         TextView title = (TextView)findViewById(R.id.txtTitle);
         TextView content = (TextView)findViewById(R.id.txtContent);
         Button btn = (Button)findViewById(R.id.close);
+        Button btn2 = (Button)findViewById(R.id.call);
 
         Intent intent = getIntent();
         int id = intent.getExtras().getInt("POSITION");
@@ -39,6 +38,14 @@ public class CallActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + dto.getPhoneNum()));
+                startActivity(intent);
             }
         });
     }
