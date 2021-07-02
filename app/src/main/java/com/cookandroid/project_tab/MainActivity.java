@@ -465,19 +465,19 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("caseNum: " + caseNum);
                 switch (caseNum) {
                     case 0:
-                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user1));
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.people1));
                         break;
                     case 1:
-                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user2));
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.people2));
                         break;
                     case 2:
-                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user3));
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.people3));
                         break;
                     case 3:
-                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user4));
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.people4));
                         break;
                     case 4:
-                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user5));
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.people5));
                         break;
 
                 }
