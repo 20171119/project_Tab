@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             image11, image12, image13, image14, image15, image16, image17, image18, image19, image20;
     final int PICTURE_REQUEST_CODE = 100;
 
-    public static ArrayList<Call> callList = new ArrayList<Call>();
+    public static ArrayList<Call> callList;
 
     public void imgVisible() {
         for (int i =0 ; i < 20; i++) {
@@ -417,6 +417,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     class LoadContactsAyscn extends AsyncTask<Void, Void, ArrayList<Map<String,String>>> {
 
         @Override
@@ -430,8 +431,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected ArrayList<Map<String, String>> doInBackground(Void... params) {
-            // TODO Auto-generated method stub
+            // TODO Auto-generated method stubco
             ArrayList<Map<String, String>> contacts = new ArrayList<Map<String, String>>();
+
+            callList = new ArrayList<Call>();
 
             Cursor c = getContentResolver().query(
                     ContactsContract.Contacts.CONTENT_URI, null,
@@ -448,8 +451,6 @@ public class MainActivity extends AppCompatActivity {
                 //연락처 대표이름
                 String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY));
 
-                map.put("name", name);
-
                 //id로 전화 정보 조회
                 Cursor phoneCursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
                         ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
@@ -458,11 +459,9 @@ public class MainActivity extends AppCompatActivity {
                 if(phoneCursor.moveToFirst()){
                     number = phoneCursor.getString(phoneCursor.getColumnIndex(
                             ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    map.put("phone", number);
                 }
 
                 caseNum = caseNum % 5;
-                System.out.println("caseNum: " + caseNum);
                 switch (caseNum) {
                     case 0:
                         callList.add(new Call(R.drawable.call3, name, number, R.drawable.people1));
@@ -482,7 +481,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 phoneCursor.close();
-                contacts.add(map);
                 caseNum++;
             } //end while
 
@@ -497,6 +495,7 @@ public class MainActivity extends AppCompatActivity {
             pd.cancel();
             CallAdapter callAdapter = new CallAdapter(getApplicationContext(), callList);
             list.setAdapter(callAdapter);
+
         }
     }
 
