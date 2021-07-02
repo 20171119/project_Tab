@@ -46,11 +46,10 @@
                         android:id="@+id/listView1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:cacheColorHint="#ffccff"
-                        android:divider="#00ffff"
                         android:dividerHeight="2sp" >
                     </ListView>
                 </LinearLayout>
+
 
                 <!-- 두 번째 페이지. content2 -->
                 <LinearLayout
