@@ -1,4 +1,4 @@
-package com.cookandroid.project_tab.customadapter;
+package com.cookandroid.project_tab.adapter;
 
 public class AnsListBean {
     //숫자와 결과

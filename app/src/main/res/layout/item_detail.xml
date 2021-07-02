@@ -71,6 +71,15 @@
                 android:layout_weight="1"
                 android:text="확인"
                 app:backgroundTint="#545557" />
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:layout_weight="1"
+                android:text="전화걸기"
+                app:backgroundTint="#545557" />
         </LinearLayout>
 
     </LinearLayout>

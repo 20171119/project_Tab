@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.cookandroid.project_tab.customadapter.AnsAdapter;
-import com.cookandroid.project_tab.customadapter.AnsListBean;
+import com.cookandroid.project_tab.adapter.AnsAdapter;
+import com.cookandroid.project_tab.adapter.AnsListBean;
 import com.cookandroid.project_tab.main.Main;
 
 import java.util.ArrayList;
