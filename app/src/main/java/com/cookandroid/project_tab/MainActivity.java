@@ -11,8 +11,7 @@ import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,12 +20,15 @@ import android.widget.TabHost;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import android.net.Uri;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.cookandroid.project_tab.customadapter.CallAdapter;
+import com.cookandroid.project_tab.data.Call;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView image1, image2, image3, image4, image5, image6, image7, image8, image9, image10,
             image11, image12, image13, image14, image15, image16, image17, image18, image19, image20;
     final int PICTURE_REQUEST_CODE = 100;
+
+    public static ArrayList<Call> callList = new ArrayList<Call>();
 
     public void imgVisible() {
         for (int i =0 ; i < 20; i++) {
@@ -207,10 +211,24 @@ public class MainActivity extends AppCompatActivity {
         tabHost1.addTab(ts4) ;
 
         // Call 변수 미리 설정
-        ll = (LinearLayout) findViewById(R.id.content1);
+//        ll = (LinearLayout) findViewById(R.id.content1);
         list = (ListView) findViewById(R.id.listView1);
         LoadContactsAyscn lca = new LoadContactsAyscn();
         lca.execute();
+        // 이벤트 처리
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /*Toast.makeText(getApplicationContext(),
+                                parent.getItemAtPosition(position).toString(),
+                                Toast.LENGTH_LONG).show();*/
+                Intent intent =
+                        new Intent(MainActivity.this, CallActivity.class);
+                intent.putExtra("POSITION", position);
+                startActivity(intent);
+            }
+        });
 
         //UI
         image1 = (ImageView)findViewById(R.id.img1);
@@ -419,8 +437,10 @@ public class MainActivity extends AppCompatActivity {
                     ContactsContract.Contacts.CONTENT_URI, null,
                     null, null, ContactsContract.Contacts.DISPLAY_NAME_PRIMARY+" asc");
 
+            int caseNum = 0;
             while (c.moveToNext()) {
                 HashMap<String, String> map = new HashMap<String, String>();
+
 
                 //연락처 id값
                 String id = c.getString(c.getColumnIndex(ContactsContract.Contacts._ID));
@@ -433,20 +453,40 @@ public class MainActivity extends AppCompatActivity {
                 //id로 전화 정보 조회
                 Cursor phoneCursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
                         ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id, null, null);
-
+                String number="";
                 //데이터가 있는 경우
                 if(phoneCursor.moveToFirst()){
-                    String number = phoneCursor.getString(phoneCursor.getColumnIndex(
+                    number = phoneCursor.getString(phoneCursor.getColumnIndex(
                             ContactsContract.CommonDataKinds.Phone.NUMBER));
                     map.put("phone", number);
                 }
+
+                caseNum = caseNum % 5;
+                System.out.println("caseNum: " + caseNum);
+                switch (caseNum) {
+                    case 0:
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user1));
+                        break;
+                    case 1:
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user2));
+                        break;
+                    case 2:
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user3));
+                        break;
+                    case 3:
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user4));
+                        break;
+                    case 4:
+                        callList.add(new Call(R.drawable.call3, name, number, R.drawable.user5));
+                        break;
+
+                }
                 phoneCursor.close();
                 contacts.add(map);
-
+                caseNum++;
             } //end while
 
             c.close();
-
             return contacts;
         }
 
@@ -454,14 +494,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(ArrayList<Map<String, String>> contacts) {
             // TODO Auto-generated method stub
             super.onPostExecute(contacts);
-
             pd.cancel();
-
-            SimpleAdapter adapter = new SimpleAdapter(
-                    getApplicationContext(), contacts, android.R.layout.simple_list_item_2,
-                    new String[]{"name","phone"}, new int[]{android.R.id.text1, android.R.id.text2});
-
-            list.setAdapter(adapter);
+            CallAdapter callAdapter = new CallAdapter(getApplicationContext(), callList);
+            list.setAdapter(callAdapter);
         }
     }
 

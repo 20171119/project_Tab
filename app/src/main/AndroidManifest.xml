@@ -26,6 +26,7 @@
         <!--도움말 엑티비티-->
         <activity android:name=".HelpActivity"/>
         <activity android:name=".GameActivity"/>
+        <activity android:name=".CallActivity" />
     </application>
 
 </manifest>

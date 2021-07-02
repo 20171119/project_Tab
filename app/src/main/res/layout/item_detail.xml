@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20sp"
+        android:orientation="vertical"
+        android:layout_weight="0.6">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            />
+        <TextView
+            android:id="@+id/txtContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:layout_margin="10dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:src="@drawable/call1"/>
+        <Button
+            android:id="@+id/close"
+            android:layout_margin="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="닫기"/>
+    </LinearLayout>
+
+</RelativeLayout>
