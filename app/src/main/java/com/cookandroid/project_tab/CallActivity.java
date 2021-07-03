@@ -27,7 +27,7 @@ public class CallActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int id = intent.getExtras().getInt("POSITION");
 
-        Call dto = MainActivity.callList.get(id);
+        Call dto = MainActivity.callList.get(id); //dto / data tranform object
 
         img.setImageResource(dto.getDiffImg());
         title.setText(dto.getName());

@@ -2,19 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:layout_margin="10dp">
 
     <TextView android:id="@+id/ansNum"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:textColor="#ffff0731"
-        android:textIsSelectable="true"/>
+        android:textColor="#000000"
+        android:textIsSelectable="true"
+        android:text="hi"
+        android:textSize="8pt"
+        android:padding="10dp"/>
 
-    <TextView android:id="@+id/ansResult"
+    <TextView
+        android:id="@+id/ansResult"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ansNum"
+        android:layout_alignRight="@+id/ansNum"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         android:gravity="right"
-        android:textColor="#ffff1edc"
-        android:textIsSelectable="true"/>
+        android:padding="10dp"
+        android:text="hi"
+        android:textColor="#1B9592"
+        android:textIsSelectable="true"
+        android:textSize="8pt" />
 </RelativeLayout>
