@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         list = (ListView) findViewById(R.id.listView1);
         LoadContactsAyscn lca = new LoadContactsAyscn();
         lca.execute();
-        // Call List Click event
+        // Call List Click event 리스트뷰 클릭시 상세화면 보기 이벤트
         list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
