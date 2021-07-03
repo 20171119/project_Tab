@@ -8,8 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -25,7 +23,6 @@ import android.net.Uri;
 import android.widget.ImageView;
 import com.cookandroid.project_tab.adapter.CallAdapter;
 import com.cookandroid.project_tab.data.Call;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabHost.TabSpec ts4 = tabHost1.newTabSpec("Tab Spec 4") ;
         ts4.setContent(R.id.content4) ;
-        ts4.setIndicator("New") ;
+        ts4.setIndicator("API") ;
         tabHost1.addTab(ts4) ;
 
         // Call 변수 미리 설정
@@ -102,6 +99,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Weather
+        Button btnWeather = (Button) findViewById(R.id.btnWeather);
+        btnWeather.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WeatherActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // Game - 새 게임

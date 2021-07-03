@@ -135,12 +135,17 @@
                     </RelativeLayout>
                 </LinearLayout>
 
+                <!-- 네 번쨰 페이지. content4 -->
                 <LinearLayout
                     android:id="@+id/content4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="weather"
+                        android:id="@+id/btnWeather" />
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

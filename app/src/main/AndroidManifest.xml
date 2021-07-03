@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> <!-- 외부 저장소 read permission -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 외부 저장소 write permission -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,7 @@
         <activity android:name=".HelpActivity"/>
         <activity android:name=".GameActivity"/>
         <activity android:name=".CallActivity" />
+        <activity android:name=".WeatherActivity"/>
     </application>
 
 </manifest>
