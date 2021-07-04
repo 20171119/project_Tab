@@ -100,6 +100,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Gallery Camera
+        Button btnCamera = (Button) findViewById(R.id.btnCamera);
+        btnCamera.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PhotoActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // Weather
         Button btnWeather = (Button) findViewById(R.id.btnWeather);
         btnWeather.setOnClickListener(new View.OnClickListener(){
