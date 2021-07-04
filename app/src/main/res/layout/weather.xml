@@ -195,7 +195,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="38dp"
                     android:layout_marginLeft="38dp"
-                    android:src="@drawable/search_icon"/>
+                    android:src="@drawable/temp"/>
                 <TextView
                     android:id="@+id/max_temp"
                     android:layout_width="80dp"
