@@ -1,11 +1,17 @@
-# Project Title / 프로젝트 이름
+# Project Title / Project_Tab
 
 **[뱃지나 프로젝트에 관한 이미지들이 이 위치에 들어가면 좋습니다]**  
 One Paragraph of project description goes here / 프로젝트의 전반적인 내용에 대한 요약을 여기에 적습니다
+Tab1 - 연락처 연동 및 전화걸기
+Tab2 - 갤러리 사진 연동 및 사진 찍기
+Tab3 - 숫자 야구 게임
+Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식점 지도 및 거리 계산 앱
 
 ## Getting Started / 어떻게 시작하나요?
 
 이 곳에서 설치에 관련된 이야기를 해주시면 좋습니다.
+apk download
+권한 허용
 
 ### Prerequisites / 선행 조건
 
@@ -49,6 +55,7 @@ Add additional notes about how to deploy this on a live system / 라이브 시�
 
 * [이름](링크) - 무엇 무엇을 했어요
 * [Name](Link) - Create README.md
+* 김영경 - 전반적으로 같이 함.
 
 ## Contributiong / 기여
 
