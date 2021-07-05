@@ -10,7 +10,7 @@ Project_Tab
 Tab1 - 연락처 연동 및 전화걸기
 Tab2 - 갤러리 사진 연동 및 사진 찍기
 Tab3 - 숫자 야구 게임
-Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식점 지도 및 거리 계산 앱
+Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식점 
 ```
 
 ## 팀원
@@ -79,7 +79,7 @@ Tab4의 지도 버튼을 클릭하면 지도앱이 실행됩니다.
 현재 위치는 5초마다 갱신됩니다.
 (Google Map API를 사용하였습니다.)
 
-Search Place 버튼과 Distance 버튼이 있습니다.
+Search Place 버튼과 Distance 버튼이 있는데,
 Search Place 버튼을 누르면 Google Places API를 이용해서 주변 음식점들을 marker를 통해 보여주고,
 주변 음식점 marker를 선택한 뒤 Distance 버튼을 누르면 
 계속 갱신되는 현재 위치와 그 음식점 사이의 직선거리를 
