@@ -70,27 +70,64 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical" >
 
-                            <RelativeLayout android:id="@+id/RelativeLayout01"
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                xmlns:android="http://schemas.android.com/apk/res/android">
+                                android:orientation="horizontal">
 
-                                <Button
-                                    android:id="@+id/btnImage"
-                                    android:text="Take a Photo"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="30dp"
-                                    android:layout_centerHorizontal="true"/>
+                                <LinearLayout
+                                    android:layout_width="170dp"
+                                    android:layout_height="100dp"
+                                    android:orientation="vertical">
 
-                                <Button
-                                    android:id="@+id/btnCamera"
-                                    android:text="Take a Camera"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="80dp"
-                                    android:layout_centerHorizontal="true"/>
-                            </RelativeLayout>
+                                    <ImageButton
+                                        android:id="@+id/btnImage"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="20dp"
+                                        android:background="@android:color/transparent"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/gallery" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="5dp"
+                                        android:text="갤러리"
+                                        android:textSize="8pt" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="170dp"
+                                    android:layout_height="100dp"
+                                    android:orientation="vertical"
+                                    android:layout_gravity="center"
+                                    >
+
+                                    <ImageButton
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:id="@+id/btnCamera"
+                                        android:src="@drawable/camera"
+                                        android:layout_gravity="center"
+                                        android:scaleType="fitCenter"
+                                        android:background="@android:color/transparent"
+                                        android:layout_marginTop="20dp"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="카메라"
+                                        android:textSize="8pt"
+                                        android:layout_gravity="center"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
                         </LinearLayout>
                     </ScrollView>
                 </LinearLayout>

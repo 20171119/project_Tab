@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Gallery ImageView
-        Button btnImage = (Button)findViewById(R.id.btnImage);
+        ImageButton btnImage = (ImageButton)findViewById(R.id.btnImage);
         imgLayout = (LinearLayout) findViewById(R.id.imgLayout);
 
         // Gallery button Click event
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Gallery Camera
-        Button btnCamera = (Button) findViewById(R.id.btnCamera);
+        ImageButton btnCamera = (ImageButton) findViewById(R.id.btnCamera);
         btnCamera.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
