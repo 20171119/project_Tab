@@ -16,3 +16,5 @@ Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식�
 * 김영경
 
 ## 스크린샷
+![weather1](https://user-images.githubusercontent.com/38155105/124452246-2d196e00-ddc1-11eb-8ad8-9226a95202e6.jpg)
+![weather2](https://user-images.githubusercontent.com/38155105/124452252-2ee33180-ddc1-11eb-934c-65508f5af03e.jpg)
