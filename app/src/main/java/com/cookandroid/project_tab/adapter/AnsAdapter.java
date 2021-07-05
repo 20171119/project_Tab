@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.cookandroid.project_tab.R;
+import com.cookandroid.project_tab.data.AnsListBean;
 
 import java.util.ArrayList;
 

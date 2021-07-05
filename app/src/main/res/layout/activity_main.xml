@@ -170,17 +170,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <Button
+                    <ImageButton
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:id="@+id/btnWeather"
+                        android:onClick="buttonClick3"
+                        android:src="@drawable/cloudy"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="80dp"/>
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="weather"
-                        android:id="@+id/btnWeather" />
+                        android:textSize="8pt"
+                        android:layout_gravity="center"/>
 
-                    <Button
+
+                    <ImageButton
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:id="@+id/btnMap"
+                        android:onClick="buttonClick4"
+                        android:src="@drawable/map_icon"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="100dp"/>
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Map"
-                        android:id="@+id/btnMap" />
+                        android:layout_marginTop="5dp"
+                        android:text="map"
+                        android:textSize="8pt"
+                        android:layout_gravity="center"/>
+
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

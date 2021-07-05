@@ -110,25 +110,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Weather
-        Button btnWeather = (Button) findViewById(R.id.btnWeather);
-        btnWeather.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), WeatherActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // Map
-        Button btnMap = (Button) findViewById(R.id.btnMap);
-        btnMap.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     // Game - 새 게임
@@ -141,6 +122,16 @@ public class MainActivity extends AppCompatActivity {
     public void buttonClick2(View v){
         Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
         startActivityForResult(intent,1002);
+    }
+
+    public void buttonClick3(View v){
+        Intent intent = new Intent(getApplicationContext(), WeatherActivity.class);
+        startActivity(intent);
+    }
+
+    public void buttonClick4(View v){
+        Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+        startActivity(intent);
     }
 
 

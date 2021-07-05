@@ -122,6 +122,7 @@ public class PhotoActivity extends AppCompatActivity {
                 Uri photoURI = FileProvider.getUriForFile(this, "com.cookandroid.project_tab.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+//                getApplicationContext().sendBroadcast(new Intent( Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(photoFile)) );
             }
         }
     }

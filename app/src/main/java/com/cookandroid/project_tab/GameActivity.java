@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cookandroid.project_tab.adapter.AnsAdapter;
-import com.cookandroid.project_tab.adapter.AnsListBean;
+import com.cookandroid.project_tab.data.AnsListBean;
 import com.cookandroid.project_tab.main.Main;
 
 import java.util.ArrayList;
