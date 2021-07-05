@@ -24,11 +24,14 @@
 <!--        사진 찍기-->
 <!--        cookandroid.project_tab-->
         <provider
+            android:authorities="com.cookandroid.project_tab"
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.cookandroid.project_tab.fileprovider"
-            android:exported="false" android:grantUriPermissions="true">
+            android:exported="false"
+            android:grantUriPermissions="true">
 
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
 
         <meta-data
