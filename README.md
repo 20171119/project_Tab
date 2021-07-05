@@ -86,4 +86,16 @@ Search Place 버튼을 누르면 Google Places API를 이용해서 주변 음식
 toast message로 5초에 한번씩 보여줍니다.
 ```
 
+## 실행 방법
+```
+ 1. https://github.com/kelly1422/project_Tab 접속 
+ 2. app/release 폴더 이동 
+ 3. app-release.apk 다운로드 
+ 4. apk 를 통해 project_Tab 앱 설치 
+```
+```
+* 앱 실행 전 권한을 설정해야 합니다.
+설정 -> 애플리케이션 -> project_Tab 권한 허용 -> 실행
+```
+
 
