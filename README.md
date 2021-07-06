@@ -25,10 +25,11 @@ Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식�
 
 ### Tab1
 
-<img src="https://user-images.githubusercontent.com/80809782/124449264-3c4aec80-ddbe-11eb-910f-d42515facb09.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124450379-50dbb480-ddbf-11eb-9348-d08fc94a8fb3.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/80809782/124596889-c1590300-de9d-11eb-81f8-d2dea1f41056.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124597229-2c0a3e80-de9e-11eb-949c-a5cadeab21b5.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124597367-5bb94680-de9e-11eb-9335-f996f58eda35.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124597379-607dfa80-de9e-11eb-8bf2-3d4b2d173be4.png" width="200" height="400">
 
 ```
 탭1은 로컬에 저장되어 있는 연락처 정보를 불러와 리스트뷰를 통해 보여준다.
+연락처 이미지버튼을 누르면 연락처 정보를 불러와 리스트 뷰에 띄우고,
 검색창을 통해 연락처를 찾을 수 있다.
 보고싶은 연락처를 누르면 상세보기 창을 통해 상세보기 창으로 들어갈 수 있고, 
 상세보기 창의 전화걸기 버튼을 누르면 그 번호가 입력된 전화앱으로 바로 연결되어 전화를 걸 수 있다. 
@@ -51,7 +52,7 @@ Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식�
 
 ### Tab3
 
-<img src="https://user-images.githubusercontent.com/80809782/124453879-c85f1300-ddc2-11eb-93f6-9ad09d6bb496.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124453908-cf862100-ddc2-11eb-85bc-16f8cbd4775d.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124453945-dc0a7980-ddc2-11eb-87cd-5231d7558c30.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124455675-cdbd5d00-ddc4-11eb-93f2-213c5366e048.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/80809782/124596795-a6868e80-de9d-11eb-907e-715c49510696.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124596814-aab2ac00-de9d-11eb-9dca-c7f980eb9561.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124453945-dc0a7980-ddc2-11eb-87cd-5231d7558c30.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124455675-cdbd5d00-ddc4-11eb-93f2-213c5366e048.png" width="200" height="400">
 
 ```
 탭3에서는 숫자야구게임을 플레이할 수 있다.
