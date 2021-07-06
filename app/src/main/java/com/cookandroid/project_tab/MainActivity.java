@@ -1,5 +1,6 @@
 package com.cookandroid.project_tab;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
@@ -8,9 +9,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,8 +26,12 @@ import java.util.Map;
 
 import android.net.Uri;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.cookandroid.project_tab.adapter.CallAdapter;
 import com.cookandroid.project_tab.data.Call;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     ListView list;
     ProgressDialog pd;
     public static ArrayList<Call> callList;
+    public static ArrayList<Call> callList2;
+    CallAdapter callAdapter;
 
     // Gallery
     final int PICTURE_REQUEST_CODE = 100;
@@ -69,10 +79,51 @@ public class MainActivity extends AppCompatActivity {
         ts4.setIndicator("API") ;
         tabHost1.addTab(ts4) ;
 
+        EditText callText = (EditText) findViewById(R.id.editSearch);
+        callText.setVisibility(View.GONE);
+
+        // 연락처 권한 추가
+        TedPermission.with(getApplicationContext())
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage("연락처 권한이 필요합니다.")
+                .setDeniedMessage("거부하셨습니다.")
+                .setPermissions(Manifest.permission.READ_CONTACTS)
+                .check();
+
+        // 연락처 동기화
+        ImageButton callBtn = (ImageButton) findViewById(R.id.callBtn);
+        callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                LoadContactsAyscn lca = new LoadContactsAyscn();
+                lca.execute();
+                callBtn.setVisibility(View.GONE);
+                callText.setVisibility(View.VISIBLE);
+            }
+        });
+        // call search
+        callText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // input창에 문자를 입력할때마다 호출된다.
+                // search 메소드를 호출한다.
+                String text = callText.getText().toString();
+                search(text);
+            }
+        });
         // Call 변수 미리 설정
         list = (ListView) findViewById(R.id.listView1);
         LoadContactsAyscn lca = new LoadContactsAyscn();
-        lca.execute();
 
         // Call List Click event 리스트뷰 클릭시 상세화면 보기 이벤트
         list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -84,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         //Gallery ImageView
         ImageButton btnImage = (ImageButton)findViewById(R.id.btnImage);
@@ -111,6 +163,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void search(String charText) {
+
+        // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
+        callList.clear();
+
+        // 문자 입력이 없을때는 모든 데이터를 보여준다.
+        if (charText.length() == 0) {
+            callList.addAll(callList2);
+        }
+        // 문자 입력을 할때..
+        else
+        {
+            // 리스트의 모든 데이터를 검색한다.
+            for(int i = 0;i < callList2.size(); i++)
+            {
+                // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
+                if (callList2.get(i).getName().toLowerCase().contains(charText))
+                {
+                    // 검색된 데이터를 리스트에 추가한다.
+                    callList.add(callList2.get(i));
+                }
+            }
+        }
+        // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
+        callAdapter.notifyDataSetChanged();
     }
 
     // Game - 새 게임
@@ -182,6 +260,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    PermissionListener permissionListener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText(getApplicationContext(), "권한이 허용됨",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            Toast.makeText(getApplicationContext(), "권한이 거부됨",Toast.LENGTH_SHORT).show();
+        }
+    };
 
 
     class LoadContactsAyscn extends AsyncTask<Void, Void, ArrayList<Call>> {
@@ -256,8 +345,12 @@ public class MainActivity extends AppCompatActivity {
             // TODO Auto-generated method stub
             super.onPostExecute(callList);
             pd.cancel();
-            CallAdapter callAdapter = new CallAdapter(getApplicationContext(), callList);
+            callList2 = new ArrayList<Call>();
+            callList2.addAll(callList);
+            System.out.println("CallList2: " + callList2);
+            callAdapter = new CallAdapter(getApplicationContext(), callList);
             list.setAdapter(callAdapter);
         }
+
     }
 }
