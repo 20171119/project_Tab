@@ -1,6 +1,6 @@
 ## 프로젝트명
 ```
-Project_Tab
+잡동사니
 ```
 
 ### 프로젝트 설명
@@ -28,7 +28,8 @@ Tab4 - 날씨 API 이용한 날씨 앱 / 구글 맵 API 이용한 주변 음식�
 <img src="https://user-images.githubusercontent.com/80809782/124449264-3c4aec80-ddbe-11eb-910f-d42515facb09.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/124450379-50dbb480-ddbf-11eb-9348-d08fc94a8fb3.png" width="200" height="400">
 
 ```
-탭1은 로컬에 저장되어 있는 연락처 정보를 불러와 리스트뷰를 통해 보여준다. 
+탭1은 로컬에 저장되어 있는 연락처 정보를 불러와 리스트뷰를 통해 보여준다.
+검색창을 통해 연락처를 찾을 수 있다.
 보고싶은 연락처를 누르면 상세보기 창을 통해 상세보기 창으로 들어갈 수 있고, 
 상세보기 창의 전화걸기 버튼을 누르면 그 번호가 입력된 전화앱으로 바로 연결되어 전화를 걸 수 있다. 
 ```
@@ -76,14 +77,13 @@ Tab4의 날씨 버튼을 클릭하면 날씨앱이 실행됩니다.
 ```
 Tab4의 지도 버튼을 클릭하면 지도앱이 실행됩니다.
 처음 지도에 들어가면 현재 위치를 보여주는 지도를 보여줍니다.
-현재 위치는 5초마다 갱신됩니다.
+현재 위치는 1초마다 갱신됩니다.
 (Google Map API를 사용하였습니다.)
 
 Search Place 버튼과 Distance 버튼이 있는데,
 Search Place 버튼을 누르면 Google Places API를 이용해서 주변 음식점들을 marker를 통해 보여주고,
 주변 음식점 marker를 선택한 뒤 Distance 버튼을 누르면 
-계속 갱신되는 현재 위치와 그 음식점 사이의 직선거리를 
-toast message로 5초에 한번씩 보여줍니다.
+계속 갱신되는 현재 위치와 그 음식점 사이의 직선거리를 toast message로 보여줍니다.
 ```
 
 ## 실행 방법
@@ -92,10 +92,6 @@ toast message로 5초에 한번씩 보여줍니다.
  2. app/release 폴더 이동 
  3. app-release.apk 다운로드 
  4. apk 를 통해 project_Tab 앱 설치 
-```
-```
-* 앱 실행 전 권한을 설정해야 합니다.
-설정 -> 애플리케이션 -> project_Tab 권한 허용 -> 실행
 ```
 
 
