@@ -82,8 +82,8 @@ public class MapActivity extends AppCompatActivity
     LatLng currentPosition;
 
 
-    private FusedLocationProviderClient mFusedLocationClient;
-    private LocationRequest locationRequest;
+    private FusedLocationProviderClient mFusedLocationClient; // 현재위치, 이전위치 등등 위치관련 클래스
+    private LocationRequest locationRequest; // 위치 설정 변경 클래스
     private Location location;
 
 
@@ -167,6 +167,7 @@ public class MapActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // 특정 작업시 화면 유지
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -175,13 +176,13 @@ public class MapActivity extends AppCompatActivity
         mLayout = findViewById(R.id.layout_main);
 
         locationRequest = new LocationRequest()
-                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(UPDATE_INTERVAL_MS)
-                .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY) // 가장 정확환 위치 설정
+                .setInterval(UPDATE_INTERVAL_MS) // 업데이트 간격
+                .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS); // 가장 빠른 업데이트 간격
 
 
         LocationSettingsRequest.Builder builder =
-                new LocationSettingsRequest.Builder();
+                new LocationSettingsRequest.Builder(); // 현재 위치 설정 받기
 
         builder.addLocationRequest(locationRequest);
 
@@ -189,7 +190,7 @@ public class MapActivity extends AppCompatActivity
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager() // 지도 프래그먼트 객체
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -207,7 +208,6 @@ public class MapActivity extends AppCompatActivity
         });
 
         // 거리
-
         final Button button2 = (Button)findViewById(R.id.distanceBtn);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override

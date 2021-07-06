@@ -24,7 +24,7 @@ public class AnsAdapter extends BaseAdapter {
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.ansArrayList = ansArrayList;
-        this.layout = layout;
+        this.layout = anslist;
     }
 
     @Override

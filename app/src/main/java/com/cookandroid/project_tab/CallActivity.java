@@ -3,6 +3,7 @@ package com.cookandroid.project_tab;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cookandroid.project_tab.data.Call;
+
 
 public class CallActivity extends AppCompatActivity {
 
@@ -49,4 +51,5 @@ public class CallActivity extends AppCompatActivity {
             }
         });
     }
+
 }

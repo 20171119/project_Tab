@@ -43,6 +43,20 @@
                     android:orientation="vertical"
                     android:paddingTop="10dp">
 
+                    <Button
+                        android:id="@+id/callBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Load Contacts"
+                        />
+
+                    <EditText
+                        android:id="@+id/editSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="검색어를 입력하세요."/>
+
                     <ListView
                         android:id="@+id/listView1"
                         android:layout_width="match_parent"

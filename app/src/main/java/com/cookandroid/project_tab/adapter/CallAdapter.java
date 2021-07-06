@@ -12,6 +12,7 @@ import com.cookandroid.project_tab.R;
 import com.cookandroid.project_tab.data.Call;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CallAdapter extends BaseAdapter {
 
@@ -41,7 +42,7 @@ public class CallAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View converView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         View view = mLayoutInflater.inflate(R.layout.list_item, null);
 
         ImageView callImg = (ImageView)view.findViewById(R.id.call_image);
