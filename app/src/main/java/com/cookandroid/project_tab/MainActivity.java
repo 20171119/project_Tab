@@ -1,25 +1,18 @@
 package com.cookandroid.project_tab;
 
 import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ClipData;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -86,20 +79,19 @@ public class MainActivity extends AppCompatActivity {
         ts4.setIndicator("API") ;
         tabHost1.addTab(ts4) ;
 
-        // 연락처 검색 안보이게 하기
         EditText callText = (EditText) findViewById(R.id.editSearch);
         callText.setVisibility(View.GONE);
 
         // 연락처 권한 추가
         TedPermission.with(getApplicationContext())
                 .setPermissionListener(permissionListener)
-                .setRationaleMessage("카메라 권한이 필요합니다.")
+                .setRationaleMessage("연락처 권한이 필요합니다.")
                 .setDeniedMessage("거부하셨습니다.")
-                .setPermissions(Manifest.permission.READ_CONTACTS, Manifest.permission.CAMERA)
+                .setPermissions(Manifest.permission.READ_CONTACTS)
                 .check();
 
-        // 카메라 연락처 동기화
-        Button callBtn = (Button) findViewById(R.id.callBtn);
+        // 연락처 동기화
+        ImageButton callBtn = (ImageButton) findViewById(R.id.callBtn);
         callBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         //Gallery ImageView
         ImageButton btnImage = (ImageButton)findViewById(R.id.btnImage);
         imgLayout = (LinearLayout) findViewById(R.id.imgLayout);
@@ -171,19 +164,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    PermissionListener permissionListener = new PermissionListener() {
-        @Override
-        public void onPermissionGranted() {
-            Toast.makeText(getApplicationContext(), "권한이 허용됨",Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-            Toast.makeText(getApplicationContext(), "권한이 거부됨",Toast.LENGTH_SHORT).show();
-        }
-    };
-
-    // Call Search
     public void search(String charText) {
 
         // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
@@ -211,6 +191,17 @@ public class MainActivity extends AppCompatActivity {
         callAdapter.notifyDataSetChanged();
     }
 
+    PermissionListener permissionListener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText(getApplicationContext(), "권한이 허용됨",Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            Toast.makeText(getApplicationContext(), "권한이 거부됨",Toast.LENGTH_SHORT).show();
+        }
+    };
 
 
     // Game - 새 게임
@@ -282,7 +273,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
     class LoadContactsAyscn extends AsyncTask<Void, Void, ArrayList<Call>> {
 
@@ -362,5 +352,6 @@ public class MainActivity extends AppCompatActivity {
             callAdapter = new CallAdapter(getApplicationContext(), callList);
             list.setAdapter(callAdapter);
         }
+
     }
 }
