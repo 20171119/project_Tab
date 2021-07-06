@@ -5,7 +5,7 @@
 
 ### 프로젝트 설명
 ```
-4개의 탭으로 구성된 앱입니다.
+4개의 탭으로 구성된 앱
 
 Tab1 - 연락처 연동 및 전화걸기
 Tab2 - 갤러리 사진 연동 및 사진 찍기
@@ -67,23 +67,23 @@ paly 버튼을 클릭하면 게임을 시작한다.
 <img src="https://user-images.githubusercontent.com/38155105/124453286-2f2ffc80-ddc2-11eb-928d-98e9d47c20e8.jpg" width="200" height="400"><img src="https://user-images.githubusercontent.com/38155105/124452957-d9f3eb00-ddc1-11eb-82cf-5dcac45f2629.jpg" width="200" height="400"><img src="https://user-images.githubusercontent.com/38155105/124452951-d95b5480-ddc1-11eb-87b6-0f743609f66d.jpg" width="200" height="400">
 
 ```
-Tab4의 날씨 버튼을 클릭하면 날씨앱이 실행됩니다.
-날씨앱에서는 검색한 도시의 여러 날씨 정보를 알려줍니다.
-(OpenWeather API를 사용하였습니다.)
+Tab4의 날씨 버튼을 클릭하면 날씨앱이 실행된다.
+날씨앱에서는 검색한 도시의 여러 날씨 정보를 알려준다.
+(OpenWeather API를 사용함)
 ```
 
 <img src="https://user-images.githubusercontent.com/38155105/124453493-61d9f500-ddc2-11eb-9c9f-19299bffc4f4.jpg" width="200" height="400"><img src="https://user-images.githubusercontent.com/38155105/124453495-61d9f500-ddc2-11eb-95fb-da626cc9724b.jpg" width="200" height="400"><img src="https://user-images.githubusercontent.com/38155105/124453490-60a8c800-ddc2-11eb-9019-e2c555fb79c3.jpg" width="200" height="400">
 
 ```
-Tab4의 지도 버튼을 클릭하면 지도앱이 실행됩니다.
-처음 지도에 들어가면 현재 위치를 보여주는 지도를 보여줍니다.
-현재 위치는 1초마다 갱신됩니다.
-(Google Map API를 사용하였습니다.)
+Tab4의 지도 버튼을 클릭하면 지도앱이 실행된다.
+처음 지도에 들어가면 현재 위치를 보여주는 지도를 보여준다.
+현재 위치는 1초마다 갱신된다.
+(Google Map API를 사용함)
 
 Search Place 버튼과 Distance 버튼이 있는데,
 Search Place 버튼을 누르면 Google Places API를 이용해서 주변 음식점들을 marker를 통해 보여주고,
 주변 음식점 marker를 선택한 뒤 Distance 버튼을 누르면 
-계속 갱신되는 현재 위치와 그 음식점 사이의 직선거리를 toast message로 보여줍니다.
+계속 갱신되는 현재 위치와 그 음식점 사이의 직선거리를 toast message로 보여준다.
 ```
 
 ## 실행 방법
